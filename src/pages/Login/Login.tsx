@@ -1,11 +1,11 @@
-import { useEffect, useState } from "react";
-import { Button, TextField, Typography } from "@mui/material";
-import styled from "styled-components";
+import { useEffect } from 'react';
+import { Button, TextField, Typography } from '@mui/material';
+import styled from 'styled-components';
 
-import { useAppDispatch, useAppSelector } from "../../redux/hooks";
-import { useNavigate } from "react-router";
-import { authenticate, login, updateUser } from "../../redux/user/slice";
-import { Paths } from "../../App";
+import { useAppDispatch, useAppSelector } from '../../redux/hooks';
+import { useNavigate } from 'react-router';
+import { authenticate, login, updateUser } from '../../redux/user/slice';
+import { Paths } from '../../App';
 const StyledPasswordCreate = styled.div`
   position: relative;
   height: 100vh;
@@ -40,11 +40,8 @@ const StyledTextField = styled(TextField)`
 const Login = () => {
   const email = useAppSelector((state) => state.user.email);
   const password = useAppSelector((state) => state.user.password);
-  const [emailError, setEmailError] = useState(false);
-  const [passwordError, setPasswordError] = useState(false);
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
-  const LoginError = useAppSelector((state) => state.user.loginError);
   const isLogged = useAppSelector((state) => state.user.isLogged);
 
   useEffect(() => {
@@ -55,14 +52,12 @@ const Login = () => {
     }
   }, [navigate, isLogged, dispatch]);
 
-  const handleEmailChange = (email: any) => {
-    dispatch(updateUser({ email }));
-    setEmailError(false);
+  const handleEmailChange = (mail: string) => {
+    dispatch(updateUser({ mail }));
   };
 
-  const handlePasswordChange = (password: any) => {
-    dispatch(updateUser({ password }));
-    setPasswordError(false);
+  const handlePasswordChange = (newPassword: string) => {
+    dispatch(updateUser({ newPassword }));
   };
 
   const handleSubmit = () => {
@@ -76,8 +71,8 @@ const Login = () => {
         <StyledTypography
           fontSize={20}
           fontWeight={500}
-          justifyContent={"flex-start"}
-          width={"100%"}
+          justifyContent={'flex-start'}
+          width={'100%'}
         >
           Login
         </StyledTypography>
@@ -94,11 +89,7 @@ const Login = () => {
           value={password}
           onChange={(e) => handlePasswordChange(e.target.value)}
         />
-        <StyledButton
-          variant="contained"
-          fullWidth
-          onClick={() => handleSubmit()}
-        >
+        <StyledButton variant="contained" fullWidth onClick={() => handleSubmit()}>
           Login
         </StyledButton>
         <StyledTypography>

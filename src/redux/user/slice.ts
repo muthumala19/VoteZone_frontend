@@ -1,9 +1,9 @@
-import { PayloadAction, createSlice } from "@reduxjs/toolkit";
+import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 
 enum Role {
-  ADMIN = "admin",
-  OBSERVER = "observer",
-  NONE = "",
+  ADMIN = 'admin',
+  OBSERVER = 'observer',
+  NONE = '',
 }
 type newUser = {
   _id: string;
@@ -27,14 +27,14 @@ type InitialDataTypeUser = {
 export const initialStateUser: InitialDataTypeUser = {
   isLogged: false,
   role: Role.NONE,
-  email: "",
-  password: "",
+  email: '',
+  password: '',
   loginError: true,
   newUser: {
-    _id: "",
-    name: "",
-    password: "",
-    email: "",
+    _id: '',
+    name: '',
+    password: '',
+    email: '',
     role: Role.OBSERVER,
     registered: false,
     isVerifiedUser: false,
@@ -42,7 +42,7 @@ export const initialStateUser: InitialDataTypeUser = {
 };
 
 const userSlice = createSlice({
-  name: "user",
+  name: 'user',
   initialState: initialStateUser,
   reducers: {
     loginSuccess: (state, action) => {
@@ -58,8 +58,8 @@ const userSlice = createSlice({
     },
     logoutSuccess: (state) => {
       state.isLogged = false;
-      state.email = "";
-      state.password = "";
+      state.email = '';
+      state.password = '';
       state.role = Role.NONE;
     },
     signup: (_state, _action) => {

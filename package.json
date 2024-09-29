@@ -32,7 +32,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "eject": "react-scripts eject",
-    "lint-fix": "eslint --fix src"
+    "lint-fix": "eslint --fix src/**/*.{ts,tsx}"
   },
   "browserslist": {
     "production": [
@@ -49,12 +49,21 @@
   "devDependencies": {
     "@babel/core": "^7.23.7",
     "@babel/preset-typescript": "^7.23.3",
-    "@eslint/js": "^9.11.1",
     "@types/react-router-dom": "^5.3.3",
     "@types/react-test-renderer": "^18.0.7",
-    "eslint": "^9.11.1",
-    "eslint-plugin-react": "^7.37.0",
+    "@typescript-eslint/eslint-plugin": "^8.7.0",
+    "@typescript-eslint/parser": "^8.7.0",
+    "eslint": "^8.57.1",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-import": "^2.30.0",
+    "eslint-plugin-prettier": "^5.2.1",
+    "eslint-plugin-react-hooks": "^4.6.2",
     "globals": "^15.9.0",
+    "prettier": "^3.3.3",
     "typescript-eslint": "^8.7.0"
-  }
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app"
+    ]}
 }

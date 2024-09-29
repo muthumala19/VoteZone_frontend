@@ -1,9 +1,9 @@
-import { Button } from "@mui/material";
-import styled from "styled-components";
-import { useAppDispatch, useAppSelector } from "../../redux/hooks";
-import { login, logout, Role } from "../../redux/user/slice";
-import UserCard from "../UserCard/UserCard";
-import { useState } from "react";
+import { Button } from '@mui/material';
+import styled from 'styled-components';
+import { useAppDispatch, useAppSelector } from '../../redux/hooks';
+import { login, logout, Role } from '../../redux/user/slice';
+import UserCard from '../UserCard/UserCard';
+import { useState } from 'react';
 
 const AppbarWrapper = styled.div`
   display: flex;
@@ -46,7 +46,7 @@ const Appbar = () => {
   const dispatch = useAppDispatch();
 
   const handleLogin = () => {
-    dispatch(login({ user: "test" }));
+    dispatch(login({ user: 'test' }));
   };
   const handleLogout = () => {
     dispatch(logout());
@@ -74,10 +74,7 @@ const Appbar = () => {
             Login
           </Button>
         )}
-        <UserCard
-          open={AddUserClicked}
-          onClose={() => setAddUserClicked(false)}
-        />
+        <UserCard open={AddUserClicked} onClose={() => setAddUserClicked(false)} />
       </ButtonWrapper>
     </AppbarWrapper>
   );

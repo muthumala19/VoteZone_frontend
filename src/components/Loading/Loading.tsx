@@ -1,6 +1,6 @@
-import React from "react";
-import CircularProgress from "@mui/material/CircularProgress";
-import { styled } from "styled-components";
+import React from 'react';
+import CircularProgress from '@mui/material/CircularProgress';
+import { styled } from 'styled-components';
 
 const StyledCircularProgress = styled.div`
   display: flex;
