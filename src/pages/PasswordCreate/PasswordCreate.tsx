@@ -1,11 +1,11 @@
-import React, { useState } from "react";
-import { Button, IconButton, TextField, Typography } from "@mui/material";
-import { Visibility, VisibilityOff } from "@mui/icons-material";
-import styled from "styled-components";
-import { validatePassword } from "../../utilities/validateUser";
-import { Paths } from "../../App";
-import { useAppDispatch } from "../../redux/hooks";
-import { signup } from "../../redux/user/slice";
+import React, { useState } from 'react';
+import { Button, IconButton, TextField, Typography } from '@mui/material';
+import { Visibility, VisibilityOff } from '@mui/icons-material';
+import styled from 'styled-components';
+import { validatePassword } from '../../utilities/validateUser';
+import { Paths } from '../../App';
+import { useAppDispatch } from '../../redux/hooks';
+import { signup } from '../../redux/user/slice';
 
 const StyledPasswordCreate = styled.div`
   position: relative;
@@ -40,40 +40,40 @@ const StyledTextField = styled(TextField)`
 
 const PasswordCreate = () => {
   const [showPassword, setShowPassword] = useState(false);
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
-  const [passwordError, setPasswordError] = useState("");
-  const [passwordMatchError, setPasswordMatchError] = useState("");
+  const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+  const [passwordError, setPasswordError] = useState('');
+  const [passwordMatchError, setPasswordMatchError] = useState('');
   const dispatch = useAppDispatch();
   const urlParams = new URLSearchParams(window.location.search);
-  const token = urlParams.get("token");
+  const token = urlParams.get('token');
 
   const handleTogglePasswordVisibility = () => {
     setShowPassword((prevShowPassword) => !prevShowPassword);
   };
 
-  const handlePasswordChange = (newPassword: any) => {
+  const handlePasswordChange = (newPassword: string) => {
     setPassword(newPassword);
 
     if (!validatePassword(newPassword)) {
-      setPasswordError("Weak password");
+      setPasswordError('Weak password');
     } else {
-      setPasswordError("");
+      setPasswordError('');
     }
     if (newPassword !== confirmPassword) {
-      setPasswordMatchError("Please make sure your passwords match!");
+      setPasswordMatchError('Please make sure your passwords match!');
     } else {
-      setPasswordMatchError("");
+      setPasswordMatchError('');
     }
   };
 
-  const handleConfirmPasswordChange = (newConfirmPassword: any) => {
+  const handleConfirmPasswordChange = (newConfirmPassword: string) => {
     setConfirmPassword(newConfirmPassword);
 
     if (newConfirmPassword !== password) {
-      setPasswordMatchError("Please make sure your passwords match!");
+      setPasswordMatchError('Please make sure your passwords match!');
     } else {
-      setPasswordMatchError("");
+      setPasswordMatchError('');
     }
   };
 
@@ -91,16 +91,12 @@ const PasswordCreate = () => {
   return (
     <StyledPasswordCreate>
       <StyledPasswordContainer>
-        <StyledTypography
-          fontSize={20}
-          justifyContent={"flex-start"}
-          width={"100%"}
-        >
+        <StyledTypography fontSize={20} justifyContent={'flex-start'} width={'100%'}>
           Create Your Password
         </StyledTypography>
         <StyledTextField
           fullWidth
-          type={showPassword ? "text" : "password"}
+          type={showPassword ? 'text' : 'password'}
           placeholder="Password"
           value={password}
           onChange={(e) => handlePasswordChange(e.target.value)}
@@ -116,7 +112,7 @@ const PasswordCreate = () => {
         />
         <StyledTextField
           fullWidth
-          type={showPassword ? "text" : "password"}
+          type={showPassword ? 'text' : 'password'}
           placeholder="Confirm Password"
           value={confirmPassword}
           onChange={(e) => handleConfirmPasswordChange(e.target.value)}

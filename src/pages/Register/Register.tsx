@@ -1,16 +1,11 @@
-import { useState } from "react";
-import { Button, IconButton, TextField, Typography } from "@mui/material";
-import styled from "styled-components";
-import { Visibility, VisibilityOff } from "@mui/icons-material";
-import { useAppDispatch, useAppSelector } from "../../redux/hooks";
-import { useNavigate } from "react-router";
-import { register, updateNewUser } from "../../redux/user/slice";
-import { Paths } from "../../App";
-import {
-  isValidEmail,
-  isValidName,
-  validatePassword,
-} from "../../utilities/validateUser";
+import { useState } from 'react';
+import { Button, IconButton, TextField, Typography } from '@mui/material';
+import styled from 'styled-components';
+import { Visibility, VisibilityOff } from '@mui/icons-material';
+import { useAppDispatch, useAppSelector } from '../../redux/hooks';
+import { register, updateNewUser } from '../../redux/user/slice';
+import { Paths } from '../../App';
+import { isValidEmail, isValidName, validatePassword } from '../../utilities/validateUser';
 
 const StyledPasswordCreate = styled.div`
   position: relative;
@@ -45,13 +40,12 @@ const StyledTextField = styled(TextField)`
 
 const Register = () => {
   const user = useAppSelector((state) => state.user.newUser);
-  const [confirmPassword, setConfirmPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [EmailEmptyError, setEmailEmptyError] = useState(false);
   const [PasswordEmptyError, setPasswordEmptyError] = useState(false);
   const [NameEmptyError, setNameEmptyError] = useState(false);
-  const [PasswordComfirmEmptyError, setPasswordComfirmEmptyError] =
-    useState(false);
+  const [PasswordComfirmEmptyError, setPasswordComfirmEmptyError] = useState(false);
   const dispatch = useAppDispatch();
   const isEmailValidated = isValidEmail(user.email);
   const isEmailTaken = user.isVerifiedUser;
@@ -68,10 +62,9 @@ const Register = () => {
     setNameEmptyError(false);
     setPasswordComfirmEmptyError(false);
   };
-  const handleConfirmPasswordChange = (newConfirmPassword: any) => {
+  const handleConfirmPasswordChange = (newConfirmPassword: string) => {
     setConfirmPassword(newConfirmPassword);
   };
-
 
   const handleSubmit = () => {
     if (!user.email) {
@@ -92,10 +85,10 @@ const Register = () => {
       confirmPassword === user.password &&
       isEmailOk &&
       isValidName(user.name) &&
-      user.name !== "" &&
-      user.email !== "" &&
-      user.password !== "" &&
-      confirmPassword !== "";
+      user.name !== '' &&
+      user.email !== '' &&
+      user.password !== '' &&
+      confirmPassword !== '';
     if (ok) {
       dispatch(register(user));
     }
@@ -106,8 +99,8 @@ const Register = () => {
       <StyledPasswordContainer>
         <StyledTypography
           fontSize={20}
-          justifyContent={"flex-start"}
-          width={"100%"}
+          justifyContent={'flex-start'}
+          width={'100%'}
           fontWeight={500}
         >
           Register
@@ -121,10 +114,10 @@ const Register = () => {
           name="name"
           helperText={
             NameEmptyError
-              ? "Mandatory field missing"
+              ? 'Mandatory field missing'
               : !isValidName(user.name)
-                ? "Invalid Name"
-                : ""
+                ? 'Invalid Name'
+                : ''
           }
         >
           Name
@@ -138,19 +131,19 @@ const Register = () => {
           name="email"
           helperText={
             isEmailTaken
-              ? "The entered email has already been registered. "
+              ? 'The entered email has already been registered. '
               : !isValidEmail(user.email)
-                ? "Please enter a valid email address. "
+                ? 'Please enter a valid email address. '
                 : EmailEmptyError
-                  ? "Mandatory field missing"
-                  : ""
+                  ? 'Mandatory field missing'
+                  : ''
           }
         >
           Email
         </StyledTextField>
         <StyledTextField
           fullWidth
-          type={showPassword ? "text" : "password"}
+          type={showPassword ? 'text' : 'password'}
           placeholder="Password"
           name="password"
           label="Password"
@@ -159,10 +152,10 @@ const Register = () => {
           error={!validatePassword(user.password) || PasswordEmptyError}
           helperText={
             !validatePassword(user.password)
-              ? "Weak password"
+              ? 'Weak password'
               : PasswordEmptyError
-                ? "Mandatory field missing"
-                : ""
+                ? 'Mandatory field missing'
+                : ''
           }
           InputProps={{
             endAdornment: (
@@ -175,17 +168,17 @@ const Register = () => {
         <StyledTextField
           fullWidth
           label="Confirm Password"
-          type={showPassword ? "text" : "password"}
+          type={showPassword ? 'text' : 'password'}
           placeholder="Confirm Password"
           value={confirmPassword}
           onChange={(e) => handleConfirmPasswordChange(e.target.value)}
           error={confirmPassword !== user.password || PasswordComfirmEmptyError}
           helperText={
             confirmPassword !== user.password
-              ? "Please make sure your passwords match!"
+              ? 'Please make sure your passwords match!'
               : PasswordComfirmEmptyError
-                ? "Mandatory field missing"
-                : ""
+                ? 'Mandatory field missing'
+                : ''
           }
           InputProps={{
             endAdornment: (
@@ -199,8 +192,8 @@ const Register = () => {
           Register
         </StyledButton>
         <StyledTypography>
-          Already have an account?{" "}
-          <a href={Paths.LOGIN} style={{ color: "blue" }}>
+          Already have an account?{' '}
+          <a href={Paths.LOGIN} style={{ color: 'blue' }}>
             Login
           </a>
         </StyledTypography>

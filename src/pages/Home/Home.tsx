@@ -1,7 +1,5 @@
-import styled from "styled-components";
-import Appbar from "../../components/Appbar/Appbar";
-import HomePage from "../../components/HomePage/HomePage";
-import ContactUs from "../../components/HomePage/ContactUs";
+import styled from 'styled-components';
+import Appbar from '../../components/Appbar/Appbar';
 
 export const HomeWarpper = styled.div`
   display: flex;
@@ -38,8 +36,6 @@ export default function Home() {
   return (
     <HomeWarpper>
       <Appbar />
-      <HomePage />
-      <ContactUs />
       <ContainerWrapper></ContainerWrapper>
     </HomeWarpper>
   );

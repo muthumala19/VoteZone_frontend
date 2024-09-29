@@ -1,13 +1,6 @@
-import { takeLatest } from "redux-saga/effects";
-import {
-  addNewUser,
-  authenticate,
-  login,
-  signup,
-  register,
-  logout,
-} from "./slice";
-import { PayloadAction } from "@reduxjs/toolkit";
+import { takeLatest } from 'redux-saga/effects';
+import { addNewUser, authenticate, login, signup, register, logout } from './slice';
+import { PayloadAction } from '@reduxjs/toolkit';
 
 export function* watchLogin() {}
 
