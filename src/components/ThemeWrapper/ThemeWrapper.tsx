@@ -18,17 +18,17 @@ export default function ThemeWrapper({ children }: IThemeWrapperProps) {
     },
     palette: {
       primary: {
-        main: "#050C9C", 
-        dark: "#001E1D", 
+        main: "#3ABEF9", 
+        dark: "#5794FF", 
         light: "#A7E6FF", 
       },
       secondary: {
-        main: "#3572EF", 
+        main: "#A7E6FF", 
         dark: "#3ABEF9",
         light: "#A7E6FF", 
       },
       text: {
-        primary: "#001E1D", 
+        primary: "#fffff", 
         secondary: "#3ABEF9", 
         disabled: "#A7E6FF", 
       },
@@ -47,7 +47,7 @@ export default function ThemeWrapper({ children }: IThemeWrapperProps) {
           disableElevation: true,
           style: {
             textTransform: "capitalize",
-            padding: "12px 32px",
+            padding: "10px 32px",
             borderRadius: "50px",
           },
         },
