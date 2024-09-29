@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import backgroundImage from "../../assets/homeBackground.jpg";
+import styled from 'styled-components';
+import backgroundImage from '../../assets/homeBackground.jpg';
 
 // Styles
 const HomeContainer = styled.div`
@@ -53,8 +53,8 @@ const HomePage = () => {
     <HomeContainer>
       <HomeTitle>Online Election Perfection</HomeTitle>
       <HomeSubtitle>
-        VoteZone is a web-based online voting system that helps you manage your
-        elections easily and securely.
+        VoteZone is a web-based online voting system that helps you manage your elections easily and
+        securely.
       </HomeSubtitle>
       <HomeButton>
         Try Now
@@ -66,12 +66,7 @@ const HomePage = () => {
           width="20px"
           height="20px"
         >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M9 5l7 7-7 7"
-          />
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
         </svg>
       </HomeButton>
     </HomeContainer>
