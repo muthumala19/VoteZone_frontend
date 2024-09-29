@@ -6,13 +6,13 @@ import {
   MenuItem,
   TextField,
   Typography,
-} from "@mui/material";
-import React from "react";
-import styled from "styled-components";
-import { isValidEmail, isValidName } from "../../utilities/validateUser";
-import { useAppDispatch, useAppSelector } from "../../redux/hooks";
-import { addNewUser, updateNewUser } from "../../redux/user/slice";
-import { Role } from "../../redux/user/slice";
+} from '@mui/material';
+import React from 'react';
+import styled from 'styled-components';
+import { isValidEmail, isValidName } from '../../utilities/validateUser';
+import { useAppDispatch, useAppSelector } from '../../redux/hooks';
+import { addNewUser, updateNewUser } from '../../redux/user/slice';
+import { Role } from '../../redux/user/slice';
 
 type UserCardProps = {
   open: boolean;
@@ -42,7 +42,7 @@ const StyledDialogContent = styled(Dialog)`
 `;
 
 const UserCard: React.FC<UserCardProps> = ({ open, onClose }) => {
-  const errorMessage = "Add a New User";
+  const errorMessage = 'Add a New User';
   const dispatch = useAppDispatch();
   const user = useAppSelector((state) => state.user.newUser);
 
@@ -55,7 +55,7 @@ const UserCard: React.FC<UserCardProps> = ({ open, onClose }) => {
       user: user,
     };
     dispatch(addNewUser(data));
-    console.log("clicked");
+    console.log('clicked');
   };
 
   const isEmailValidated = isValidEmail(user.email);
@@ -91,10 +91,10 @@ const UserCard: React.FC<UserCardProps> = ({ open, onClose }) => {
             name="email"
             helperText={
               isEmailTaken
-                ? "The entered email has already been registered. "
+                ? 'The entered email has already been registered. '
                 : !isEmailValidated
-                  ? "Please enter a valid email address. "
-                  : ""
+                  ? 'Please enter a valid email address. '
+                  : ''
             }
           >
             Email
@@ -112,19 +112,19 @@ const UserCard: React.FC<UserCardProps> = ({ open, onClose }) => {
                 {option.value}
               </MenuItem>
             ))}
-          </StyledTextField>{" "}
+          </StyledTextField>{' '}
           <ButtonWrapper>
             <Button
               variant="contained"
-              style={{ marginRight: "10px" }}
+              style={{ marginRight: '10px' }}
               onClick={onClickAdd}
               disabled={
                 !isValidName(user.name) ||
                 !isValidEmail(user.email) ||
                 user.isVerifiedUser ||
                 !user.role ||
-                user.email === "" ||
-                user.name === ""
+                user.email === '' ||
+                user.name === ''
               }
             >
               Submit

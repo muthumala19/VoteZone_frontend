@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import Appbar from "../../components/Appbar/Appbar";
+import styled from 'styled-components';
+import Appbar from '../../components/Appbar/Appbar';
 
 export const HomeWarpper = styled.div`
   display: flex;
