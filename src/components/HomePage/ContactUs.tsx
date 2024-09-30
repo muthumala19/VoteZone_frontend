@@ -80,6 +80,28 @@ const ContactForm = styled.div`
   }
 `;
 
+const StyledTextField = styled(TextField)`
+  & .MuiOutlinedInput-root {
+    background-color: white;
+
+    & fieldset {
+      border-color: #3572ef; // Border color
+    }
+
+    &:hover fieldset {
+      border-color: #3572ef; // Hover border color
+    }
+  }
+
+  & .MuiInputBase-input {
+    color: black; // Text color
+  }
+
+  & .MuiInputLabel-root {
+    color: white; // Placeholder color
+  }
+`;
+
 const ContactUsPage: React.FC = () => {
   const [formData, setFormData] = useState({
     name: '',
@@ -108,7 +130,7 @@ const ContactUsPage: React.FC = () => {
 
       <ContactForm>
         <form onSubmit={handleSubmit}>
-          <TextField
+          <StyledTextField
             type="text"
             name="name"
             placeholder="Name"
@@ -136,7 +158,7 @@ const ContactUsPage: React.FC = () => {
               },
             }}
           />
-          <TextField
+          <StyledTextField
             type="email"
             name="email"
             placeholder="Email"
@@ -164,7 +186,7 @@ const ContactUsPage: React.FC = () => {
               },
             }}
           />
-          <TextField
+          <StyledTextField
             name="message"
             placeholder="Message"
             value={formData.message}

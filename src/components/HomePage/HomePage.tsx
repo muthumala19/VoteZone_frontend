@@ -8,7 +8,7 @@ const HomeContainer = styled.div`
   align-items: center;
   background: url('/assets/homeBackground.jpg') no-repeat center center;
   background-size: cover;
-  min-height: 95vh;
+  min-height: 99vh;
   text-align: center;
   color: white;
 `;
