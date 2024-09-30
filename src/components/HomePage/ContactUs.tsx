@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import { Button, TextField, Input } from '@mui/material';
 
 // Styles
 const ContactContainer = styled.div`
@@ -48,21 +49,15 @@ const ContactDetails = styled.div`
 
 const ContactForm = styled.div`
   background-color: #050c9c;
-  padding: 40px;
+  padding: 20px;
   border-radius: 10px;
   box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
 
   input,
   textarea {
     width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
     border: none;
     border-radius: 5px;
-  }
-
-  input {
-    height: 40px;
   }
 
   textarea {
@@ -72,7 +67,7 @@ const ContactForm = styled.div`
 
   button {
     width: 100%;
-    padding: 12px;
+    margin-top: 20px;
     background-color: #a7e6ff;
     color: black;
     border: none;
@@ -113,30 +108,90 @@ const ContactUsPage: React.FC = () => {
 
       <ContactForm>
         <form onSubmit={handleSubmit}>
-          <input
+          <TextField
             type="text"
             name="name"
             placeholder="Name"
             value={formData.name}
             onChange={handleChange}
             required
+            fullWidth
+            variant="outlined"
+            margin="normal"
+            sx={{
+              input: {
+                color: 'black', // Text color
+              },
+              '& .MuiOutlinedInput-root': {
+                backgroundColor: 'white',
+                '& fieldset': {
+                  borderColor: '#3572EF', // Border color
+                },
+                '&:hover fieldset': {
+                  borderColor: '#3572EF', // Hover border color
+                },
+              },
+              '& .MuiInputLabel-root': {
+                color: 'white', // Placeholder color
+              },
+            }}
           />
-          <input
+          <TextField
             type="email"
             name="email"
             placeholder="Email"
             value={formData.email}
             onChange={handleChange}
             required
+            fullWidth
+            variant="outlined"
+            margin="normal"
+            sx={{
+              input: {
+                color: 'black', // Text color
+              },
+              '& .MuiOutlinedInput-root': {
+                backgroundColor: 'white',
+                '& fieldset': {
+                  borderColor: '#3572EF', // Border color
+                },
+                '&:hover fieldset': {
+                  borderColor: '#3572EF', // Hover border color
+                },
+              },
+              '& .MuiInputLabel-root': {
+                color: 'white', // Placeholder color
+              },
+            }}
           />
-          <textarea
+          <TextField
             name="message"
             placeholder="Message"
             value={formData.message}
             onChange={handleChange}
             required
+            fullWidth
+            variant="outlined"
+            margin="normal"
+            sx={{
+              input: {
+                color: 'black', // Text color
+              },
+              '& .MuiOutlinedInput-root': {
+                backgroundColor: 'white',
+                '& fieldset': {
+                  borderColor: '#3572EF', // Border color
+                },
+                '&:hover fieldset': {
+                  borderColor: '#3572EF', // Hover border color
+                },
+              },
+              '& .MuiInputLabel-root': {
+                color: 'white', // Placeholder color
+              },
+            }}
           />
-          <button type="submit">Send Message</button>
+          <Button type="submit">Send Message</Button>
         </form>
       </ContactForm>
     </ContactContainer>

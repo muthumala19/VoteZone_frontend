@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import backgroundImage from '../../assets/homeBackground.jpg';
 
 // Styles
 const HomeContainer = styled.div`
@@ -7,7 +6,7 @@ const HomeContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: url(${backgroundImage}) no-repeat center center;
+  background: url('/assets/homeBackground.jpg') no-repeat center center;
   background-size: cover;
   min-height: 95vh;
   text-align: center;
