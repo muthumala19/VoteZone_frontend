@@ -18,8 +18,8 @@ export default function ThemeWrapper({ children }: IThemeWrapperProps) {
     },
     palette: {
       primary: {
-        main: '#3ABEF9',
-        dark: '#5794FF',
+        main: '#a7e6ff',
+        dark: '#3572ef',
         light: '#A7E6FF',
       },
       secondary: {
@@ -49,6 +49,7 @@ export default function ThemeWrapper({ children }: IThemeWrapperProps) {
             textTransform: 'capitalize',
             padding: '10px 32px',
             borderRadius: '50px',
+            color: 'black',
           },
         },
         styleOverrides: {},
