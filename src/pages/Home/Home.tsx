@@ -2,6 +2,8 @@ import styled from 'styled-components';
 import Appbar from '../../components/Appbar/Appbar';
 import HomePage from '../../components/HomePage/HomePage';
 import ContactUs from '../../components/HomePage/ContactUs';
+import StatsIcons from '../../components/HomePage/Stats';
+import Services from '../../components/HomePage/OurServices';
 
 export const HomeWarpper = styled.div`
   display: flex;
@@ -17,6 +19,8 @@ export default function Home() {
     <HomeWarpper>
       <Appbar />
       <HomePage />
+      <Services />
+      <StatsIcons />
       <ContactUs />
     </HomeWarpper>
   );

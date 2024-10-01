@@ -10,8 +10,13 @@ const ContactContainer = styled.div`
   padding: 50px 20px;
   background-color: white;
   margin-top: 30px;
-  flex-wrap: wrap; /* Ensure it wraps for responsiveness */
+  flex-wrap: wrap;
   text-align: left;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    text-align: center;
+  }
 `;
 
 const ContactDetails = styled.div`
@@ -48,9 +53,10 @@ const ContactDetails = styled.div`
 `;
 
 const ContactForm = styled.div`
-  background-color: #050c9c;
+  max-width: 40%;
+  background-color: #201658;
   padding: 20px;
-  border-radius: 10px;
+  border-radius: 20px;
   box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
 
   input,
@@ -77,6 +83,10 @@ const ContactForm = styled.div`
     &:hover {
       background-color: #3572ef;
     }
+  }
+
+  @media (max-width: 768px) {
+    margin-top: 50px;
   }
 `;
 
@@ -140,23 +150,6 @@ const ContactUsPage: React.FC = () => {
             fullWidth
             variant="outlined"
             margin="normal"
-            sx={{
-              input: {
-                color: 'black', // Text color
-              },
-              '& .MuiOutlinedInput-root': {
-                backgroundColor: 'white',
-                '& fieldset': {
-                  borderColor: '#3572EF', // Border color
-                },
-                '&:hover fieldset': {
-                  borderColor: '#3572EF', // Hover border color
-                },
-              },
-              '& .MuiInputLabel-root': {
-                color: 'white', // Placeholder color
-              },
-            }}
           />
           <StyledTextField
             type="email"
@@ -168,23 +161,6 @@ const ContactUsPage: React.FC = () => {
             fullWidth
             variant="outlined"
             margin="normal"
-            sx={{
-              input: {
-                color: 'black', // Text color
-              },
-              '& .MuiOutlinedInput-root': {
-                backgroundColor: 'white',
-                '& fieldset': {
-                  borderColor: '#3572EF', // Border color
-                },
-                '&:hover fieldset': {
-                  borderColor: '#3572EF', // Hover border color
-                },
-              },
-              '& .MuiInputLabel-root': {
-                color: 'white', // Placeholder color
-              },
-            }}
           />
           <StyledTextField
             name="message"
@@ -195,23 +171,6 @@ const ContactUsPage: React.FC = () => {
             fullWidth
             variant="outlined"
             margin="normal"
-            sx={{
-              input: {
-                color: 'black', // Text color
-              },
-              '& .MuiOutlinedInput-root': {
-                backgroundColor: 'white',
-                '& fieldset': {
-                  borderColor: '#3572EF', // Border color
-                },
-                '&:hover fieldset': {
-                  borderColor: '#3572EF', // Hover border color
-                },
-              },
-              '& .MuiInputLabel-root': {
-                color: 'white', // Placeholder color
-              },
-            }}
           />
           <Button type="submit">Send Message</Button>
         </form>
