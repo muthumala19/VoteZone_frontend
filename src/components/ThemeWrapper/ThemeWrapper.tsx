@@ -8,51 +8,103 @@ interface IThemeWrapperProps {
 export default function ThemeWrapper({ children }: IThemeWrapperProps) {
   const theme = createTheme({
     typography: {
-      fontFamily: 'Satoshi',
+      fontFamily: 'Satoshi, sans-serif',
       button: {
-        fontFamily: 'Satoshi',
+        fontFamily: 'Satoshi, sans-serif',
         fontWeight: 500,
-        fontSize: '15px',
-        lineHeight: '20px',
+        fontSize: '14px',
+        lineHeight: '18px',
+        letterSpacing: '0.5px',
       },
     },
     palette: {
       primary: {
-        main: '#a7e6ff',
-        dark: '#3572ef',
-        light: '#A7E6FF',
+        main: '#0056b3',
+        contrastText: '#ffffff',
       },
       secondary: {
         main: '#A7E6FF',
-        dark: '#3ABEF9',
-        light: '#A7E6FF',
+        contrastText: '#0056b3',
       },
       text: {
-        primary: '#fffff',
-        secondary: '#3ABEF9',
-        disabled: '#A7E6FF',
-      },
-      warning: {
-        main: '#E16162',
+        primary: '#333333',
+        secondary: '#0056b3',
       },
       background: {
-        default: '#FFFFFF',
-        paper: '#F5F5F5',
+        default: '#f4f6f8',
+        paper: '#ffffff',
       },
+    },
+    shape: {
+      borderRadius: 8,
     },
     components: {
       MuiButton: {
         defaultProps: {
           disableRipple: true,
           disableElevation: true,
-          style: {
-            textTransform: 'capitalize',
-            padding: '10px 32px',
-            borderRadius: '50px',
-            color: 'black',
+        },
+        styleOverrides: {
+          root: {
+            textTransform: 'none',
+            padding: '12px 24px',
+            borderRadius: '8px',
+            '&.MuiButton-contained': {
+              backgroundColor: '#0056b3',
+              color: '#ffffff',
+              '&:hover': {
+                backgroundColor: '#004494',
+              },
+              '&:disabled': {
+                backgroundColor: '#e0e0e0',
+                color: '#9e9e9e',
+              },
+            },
+            '&.MuiButton-outlined': {
+              borderColor: '#0056b3',
+              color: '#0056b3',
+              '&:hover': {
+                backgroundColor: 'rgba(0, 86, 179, 0.04)',
+                borderColor: '#004494',
+              },
+              '&:disabled': {
+                borderColor: '#e0e0e0',
+                color: '#9e9e9e',
+              },
+            },
           },
         },
-        styleOverrides: {},
+      },
+      MuiTextField: {
+        styleOverrides: {
+          root: {
+            '& .MuiInputBase-root': {
+              color: '#333333',
+              backgroundColor: '#ffffff',
+              borderRadius: '8px',
+            },
+            '& .MuiInputLabel-root': {
+              color: '#555555',
+              fontSize: '14px',
+              '&.Mui-focused': {
+                color: '#0056b3',
+              },
+            },
+            '& .MuiOutlinedInput-notchedOutline': {
+              borderColor: '#cccccc',
+            },
+            '&:hover .MuiOutlinedInput-notchedOutline': {
+              borderColor: '#0056b3',
+            },
+            '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
+              borderColor: '#0056b3',
+            },
+            '& .MuiInputBase-input::placeholder': {
+              color: '#aaaaaa',
+              fontSize: '14px',
+            },
+          },
+        },
       },
     },
   });

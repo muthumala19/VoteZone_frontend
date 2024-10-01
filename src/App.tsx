@@ -6,6 +6,7 @@ import Login from './pages/Login/Login';
 import Register from './pages/Register/Register';
 import Dashboard from './pages/Dashboard/Dashboard';
 import ThemeWrapper from './components/ThemeWrapper/ThemeWrapper';
+import ElectionDetails from './pages/EventDetails/EventDetails';
 
 export enum Paths {
   LOGIN = '/login',
@@ -23,7 +24,7 @@ function App() {
         <Route path={Paths.LOGIN} element={<Login />} />
         <Route path={Paths.REGISTER} element={<Register />} />
         <Route path={Paths.SIGNUP} element={<PasswordCreate />} />
-        <Route path={Paths.DASHBOARD} element={<Dashboard />} />
+        <Route path={Paths.DASHBOARD} element={<ElectionDetails />} />
         <Route element={<ProtectedRoute />}>
           <Route path={Paths.HOME} element={<Home />} />
         </Route>
