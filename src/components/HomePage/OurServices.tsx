@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Security, Build, AutoAwesome } from '@mui/icons-material'; // Assuming you're using Material-UI icons
+import { Grid } from '@mui/material';
 
 // Styles
 const FeaturesContainer = styled.div`
@@ -67,8 +68,8 @@ const WhyChooseUs = () => {
         election needs.
       </Subtitle>
 
-      <FeaturesGrid>
-        <FeatureCard>
+      <Grid container>
+        <Grid item md={4} sm={12}>
           <Security />
           <h3>Secure and Reliable</h3>
           <p>
@@ -78,9 +79,9 @@ const WhyChooseUs = () => {
             <br />
             100% Availability Guarantee
           </p>
-        </FeatureCard>
+        </Grid>
 
-        <FeatureCard>
+        <Grid item md={4} sm={12}>
           <Build />
           <h3>Flexible and Simple to Use</h3>
           <p>
@@ -90,9 +91,9 @@ const WhyChooseUs = () => {
             <br />
             Internet, Phone, and Paper Ballots
           </p>
-        </FeatureCard>
+        </Grid>
 
-        <FeatureCard>
+        <Grid item md={4} sm={12}>
           <AutoAwesome />
           <h3>Industry-Specific Expertise</h3>
           <p>
@@ -102,8 +103,8 @@ const WhyChooseUs = () => {
             <br />
             Custom Voting Technology
           </p>
-        </FeatureCard>
-      </FeaturesGrid>
+        </Grid>
+      </Grid>
     </FeaturesContainer>
   );
 };
