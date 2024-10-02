@@ -1,11 +1,32 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Grid } from '@mui/material';
-import DashboardLayout from '../../components/Dashboard/Dashboard';
+import DashboardLayout from '../../components/Dashboard/DashboardLayout';
 import ElectionChecklist, { Status } from '../../components/EventDetails/ElectionChecklist';
 import ElectionOverview from '../../components/EventDetails/ElectionOverview';
 import TitleWrapper from '../../components/Dashboard/PageContent/TitleWrapper/TitleWrapper';
+import ElectionActions from '../../components/EventDetails/ElectionActions';
+import EditElectionModal from './EditElectionModal';
 
 const ElectionDetails = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [electionData, setElectionData] = useState({
+    electionName: 'Election Name',
+    startDate: '2023-09-29',
+    endDate: '2023-09-30',
+  });
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+  };
+
+  const handleSaveElection = (updatedData: {
+    electionName: string;
+    startDate: string;
+    endDate: string;
+  }) => {
+    setElectionData(updatedData);
+  };
+
   const checklistItems = [
     { id: 1, status: Status.CHECK, message: 'Election details & dates are added.' },
     {
@@ -54,14 +75,28 @@ const ElectionDetails = () => {
               questions={999999999999}
               electors={999999999999}
               votes={999999999999}
-              url={'https://www.example.com'}
+              url={'https://www.example.com/mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm'}
             />
           </Grid>
           <Grid item xs={12} md={6}>
             <ElectionChecklist title="Checklist" checklistItems={checklistItems} />
           </Grid>
+          <Grid item xs={12} md={8}>
+            <ElectionActions
+              electionId={1}
+              onSendEmails={() => {}}
+              onEditElection={() => setIsModalOpen(true)}
+              onDeleteElection={() => {}}
+            />
+          </Grid>
         </Grid>
       </Grid>
+      <EditElectionModal
+        open={isModalOpen}
+        onClose={handleCloseModal}
+        electionData={electionData} // Pass current election data
+        onSave={handleSaveElection} // Handle saving the updated data
+      />
     </DashboardLayout>
   );
 };

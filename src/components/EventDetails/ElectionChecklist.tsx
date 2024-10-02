@@ -5,19 +5,13 @@ import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import WarningIcon from '@mui/icons-material/Warning';
 import HourglassEmptyIcon from '@mui/icons-material/HourglassEmpty';
 import ArrowOutwardIcon from '@mui/icons-material/ArrowOutward';
+import StyledCardLayout from './StyledCardLayout';
 
 export enum Status {
   CHECK = 'CHECK',
   WARNING = 'WARNING',
   HOURGLASS = 'HOURGLASS',
 }
-
-const StyledPaper = styled(Paper)(({ theme }) => ({
-  padding: theme.spacing(3),
-  borderRadius: theme.shape.borderRadius,
-  boxShadow: '0 4px 12px rgba(0, 0, 0, 0.1)',
-  gap: theme.spacing(2),
-}));
 
 const ChecklistItem = styled(Typography)(({ theme }) => ({
   display: 'flex',
@@ -27,9 +21,6 @@ const ChecklistItem = styled(Typography)(({ theme }) => ({
   gap: theme.spacing(1),
 }));
 
-const StyledTypography = styled(Typography)({
-  paddingBottom: 20,
-});
 interface ChecklistItemProps {
   id: number;
   status: Status;
@@ -49,10 +40,8 @@ const iconMapping = {
 };
 
 const ElectionChecklist: React.FC<ElectionChecklistProps> = ({ title, checklistItems }) => (
-  <StyledPaper>
-    <StyledTypography variant="h5">{title}</StyledTypography>
-    <Divider />
-    <Box pt={2}>
+  <StyledCardLayout title={title}>
+    <Box>
       {checklistItems.map((item, _index) => (
         <ChecklistItem key={item.id}>
           {iconMapping[item.status]} <Typography component="span">{item.message}</Typography>
@@ -66,7 +55,7 @@ const ElectionChecklist: React.FC<ElectionChecklistProps> = ({ title, checklistI
         </ChecklistItem>
       ))}
     </Box>
-  </StyledPaper>
+  </StyledCardLayout>
 );
 
 export default ElectionChecklist;

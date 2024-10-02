@@ -1,6 +1,6 @@
 import React from 'react';
-import Dashboard from '../../components/Dashboard/Dashboard';
-import DashboardLayout from '../../components/Dashboard/Dashboard';
+import Dashboard from '../../components/Dashboard/DashboardLayout';
+import DashboardLayout from '../../components/Dashboard/DashboardLayout';
 import { Box } from '@mui/material';
 
 function DashboardWrapper() {

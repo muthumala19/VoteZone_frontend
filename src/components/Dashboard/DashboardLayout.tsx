@@ -10,6 +10,11 @@ const collapsedDrawerWidth = 70;
 
 const DashboardWrapper = styled(Box)({
   display: 'flex',
+  background: 'linear-gradient(45deg, rgba(63, 81, 181, 0.1) 30%, rgba(48, 63, 159, 0.2) 90%)',
+  minHeight: '100vh',
+  '@media (max-width: 600px)': {
+    display: 'block',
+  },
 });
 
 interface IProps {

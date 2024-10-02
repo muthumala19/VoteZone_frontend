@@ -6,16 +6,7 @@ import PeopleIcon from '@mui/icons-material/People';
 import HowToVoteIcon from '@mui/icons-material/HowToVote';
 import DateRangeIcon from '@mui/icons-material/DateRange';
 import { Link } from 'react-router-dom';
-
-const StyledPaper = styled(Paper)(({ theme }) => ({
-  padding: theme.spacing(2.5),
-  borderRadius: theme.shape.borderRadius,
-  boxShadow: '0 4px 12px rgba(0, 0, 0, 0.1)',
-  display: 'flex',
-  flexDirection: 'column',
-  gap: theme.spacing(2),
-}));
-
+import StyledCardLayout from './StyledCardLayout';
 const StyledGridItem = styled(Grid)({
   display: 'flex',
   justifyContent: 'center',
@@ -63,13 +54,14 @@ const ElectionOverview: React.FC<ElectionOverviewProps> = ({
   url,
 }) => {
   return (
-    <StyledPaper key={electionId}>
-      <Typography variant="h5" component="h2" gutterBottom>
-        Election Overview
-      </Typography>
-      <Divider />
-      <Typography variant="h6">{electionName}</Typography>
-      <Box display={{ xs: 'block', md: 'flex' }} alignItems="center" gap={1}>
+    <StyledCardLayout key={electionId} title="Election Overview">
+      <StyledTypography variant="h6">{electionName}</StyledTypography>
+      <Box
+        display={{ xs: 'block', md: 'flex' }}
+        alignItems="center"
+        gap={1}
+        sx={{ width: '100%', overflow: 'hidden', whiteSpace: 'nowrap' }}
+      >
         <Typography variant="h6">Election Portal Url:</Typography>
         <Link to={url}>{url}</Link>
       </Box>
@@ -125,7 +117,7 @@ const ElectionOverview: React.FC<ElectionOverviewProps> = ({
           </StyledBox>
         </StyledGridItem>
       </Grid>
-    </StyledPaper>
+    </StyledCardLayout>
   );
 };
 

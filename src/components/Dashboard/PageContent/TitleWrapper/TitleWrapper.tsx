@@ -2,7 +2,7 @@ import { Box, Chip, Grid2, Typography } from '@mui/material';
 
 interface ITitleWrapperProps {
   id: string;
-  name: string;
+  name?: string;
   status: string;
   startTime: string;
   isDraft: boolean;
@@ -30,7 +30,7 @@ const TitleWrapper = ({ id, name, status, startTime, isDraft }: ITitleWrapperPro
         alignItems={'center'}
         gap={2}
       >
-        <Chip label={name} />
+        {name && <Chip label={name} />}
         <Typography variant="body1">Election Details</Typography>
       </Box>
       <Box

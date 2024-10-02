@@ -9,13 +9,39 @@ import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import PublicIcon from '@mui/icons-material/Public';
 import DrawerListItem from './DrawerItem';
+import { Paths } from '../../../App';
+import { useNavigate } from 'react-router-dom';
 
 export const drawerItems = [
-  { id: 1, icon: <ListAltIcon />, text: 'Election Data', tooltipTitle: 'Election Data' },
-  { id: 2, icon: <PeopleIcon />, text: 'Voters', tooltipTitle: 'Voters' },
-  { id: 3, icon: <HelpIcon />, text: 'Election Questions', tooltipTitle: 'Election Questions' },
-  { id: 4, icon: <AssessmentIcon />, text: 'Reports', tooltipTitle: 'Reports' },
-  { id: 5, icon: <PublicIcon />, text: 'Election Portal', tooltipTitle: 'Election Portal' },
+  {
+    id: 1,
+    icon: <ListAltIcon />,
+    text: 'Election Data',
+    tooltipTitle: 'Election Data',
+    path: '/dashboard',
+  },
+  { id: 2, icon: <PeopleIcon />, text: 'Voters', tooltipTitle: 'Voters', path: '/dashboard' },
+  {
+    id: 3,
+    icon: <HelpIcon />,
+    text: 'Election Questions',
+    tooltipTitle: 'Election Questions',
+    path: '/dashboard',
+  },
+  {
+    id: 4,
+    icon: <AssessmentIcon />,
+    text: 'Reports',
+    tooltipTitle: 'Reports',
+    path: '/dashboard/reports',
+  },
+  {
+    id: 5,
+    icon: <PublicIcon />,
+    text: 'Election Portal',
+    tooltipTitle: 'Election Portal',
+    path: '/dashboard',
+  },
 ];
 
 const Drawer = styled(MuiDrawer)(
@@ -69,7 +95,12 @@ const DrawerComponent = ({
   selectedPage,
   setSelectedPage,
 }: DrawerComponentProps) => {
-  console.log('DrawerComponent', selectedPage);
+  const navigate = useNavigate();
+
+  const handleNavigate = (path: string, id: number) => {
+    navigate(path);
+    setSelectedPage(id);
+  };
   const drawer = (
     <Box>
       <StyledBox>
@@ -85,13 +116,13 @@ const DrawerComponent = ({
       </StyledBox>
       <Divider />
       <List>
-        {drawerItems.map((item) => (
+        {drawerItems.map((item, _) => (
           <DrawerListItem
             key={item.text}
             icon={item.icon}
             text={item.text}
             isCollapsed={isCollapsed}
-            onClick={() => setSelectedPage(item.id)}
+            onClick={() => handleNavigate(item.path, item.id)}
             tooltipTitle={item.tooltipTitle}
             isSelected={selectedPage === item.id}
           />

@@ -6,8 +6,6 @@ const StyledWrapper = styled(Box)({
   display: 'flex',
   flexDirection: 'column',
   width: '100%',
-  minHeight: '100vh',
-  background: 'linear-gradient(45deg, rgba(63, 81, 181, 0.1) 30%, rgba(48, 63, 159, 0.2) 90%)',
 });
 
 interface IMainContentProps {
@@ -27,12 +25,11 @@ const MainContent = ({
     <Box
       component="main"
       p={{ xs: 0, sm: 0.5 }}
+      mt={{ xs: 4, sm: 8 }}
       sx={{
         width: { sm: `calc(100% - ${isCollapsed ? collapsedDrawerWidth : drawerWidth}px)` },
         flexGrow: 1,
         transition: 'all 0.3s ease',
-        marginTop: '60px',
-        background: (theme) => theme.palette.background.default,
       }}
     >
       <StyledWrapper>{children}</StyledWrapper>
