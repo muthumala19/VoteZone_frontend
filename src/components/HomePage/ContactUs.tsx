@@ -50,6 +50,10 @@ const ContactDetails = styled.div`
       text-decoration: underline;
     }
   }
+
+  @media (max-width: 768px) {
+    max-width: 80%;
+  }
 `;
 
 const ContactForm = styled.div`
@@ -87,6 +91,7 @@ const ContactForm = styled.div`
 
   @media (max-width: 768px) {
     margin-top: 50px;
+    max-width: 80%;
   }
 `;
 

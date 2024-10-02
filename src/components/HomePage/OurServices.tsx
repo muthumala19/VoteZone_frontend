@@ -9,6 +9,12 @@ const FeaturesContainer = styled.div`
   padding: 50px 20px;
   background-color: white;
   //border-bottom: 2px solid #201658;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 `;
 
 const Title = styled.h2`
@@ -23,42 +29,6 @@ const Subtitle = styled.p`
   margin-bottom: 40px;
 `;
 
-const FeaturesGrid = styled.div`
-  display: flex;
-  justify-content: space-around;
-  align-items: flex-start;
-  flex-wrap: wrap;
-
-  @media (max-width: 768px) {
-    flex-direction: column;
-    align-items: center;
-  }
-`;
-
-const FeatureCard = styled.div`
-  flex: 1;
-  max-width: 300px;
-  margin: 20px;
-  text-align: center;
-
-  svg {
-    font-size: 60px;
-    color: #201658;
-  }
-
-  h3 {
-    font-size: 1.5rem;
-    color: #333;
-    margin: 20px 0;
-  }
-
-  p {
-    font-size: 1rem;
-    color: #666;
-    line-height: 1.5;
-  }
-`;
-
 const WhyChooseUs = () => {
   return (
     <FeaturesContainer>
@@ -69,7 +39,7 @@ const WhyChooseUs = () => {
       </Subtitle>
 
       <Grid container>
-        <Grid item md={4} sm={12}>
+        <Grid item md={4} sm={12} xs={12}>
           <Security />
           <h3>Secure and Reliable</h3>
           <p>
@@ -81,7 +51,7 @@ const WhyChooseUs = () => {
           </p>
         </Grid>
 
-        <Grid item md={4} sm={12}>
+        <Grid item md={4} sm={12} xs={12}>
           <Build />
           <h3>Flexible and Simple to Use</h3>
           <p>
@@ -93,7 +63,7 @@ const WhyChooseUs = () => {
           </p>
         </Grid>
 
-        <Grid item md={4} sm={12}>
+        <Grid item md={4} sm={12} xs={12}>
           <AutoAwesome />
           <h3>Industry-Specific Expertise</h3>
           <p>

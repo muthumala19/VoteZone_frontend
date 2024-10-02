@@ -1,13 +1,51 @@
-import React from 'react';
 import styled from 'styled-components';
 import { Box, Grid, Typography } from '@mui/material';
+import { Facebook, LinkedIn, Twitter } from '@mui/icons-material';
 
 const FooterContainer = styled.div`
   text-align: center;
   background-color: #201658;
   color: white;
   margin-top: 30px;
-  padding: 80px;
+  padding: 50px;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
+`;
+
+const SocialIcons = styled.div`
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+
+  svg {
+    color: white;
+    cursor: pointer;
+    transition: color 0.3s;
+
+    &:hover {
+      color: #00aa8d;
+    }
+  }
+`;
+
+const LinkList = styled.ul`
+  list-style-type: none;
+  padding: 0;
+`;
+
+const LinkItem = styled.li`
+  margin-bottom: 10px;
+
+  a {
+    color: white;
+    text-decoration: none;
+
+    &:hover {
+      color: #00aa8d;
+    }
+  }
 `;
 
 const Footer = () => {
@@ -28,7 +66,20 @@ const Footer = () => {
               Additional Links
             </Typography>
             <Typography variant="body2">
-              FAQs <br /> Voting <br /> Privacy
+              <LinkList>
+                <LinkItem>
+                  <a href="#faqs">FAQs</a>
+                </LinkItem>
+                <LinkItem>
+                  <a href="#voting">Voting</a>
+                </LinkItem>
+                <LinkItem>
+                  <a href="#events">Events</a>
+                </LinkItem>
+                <LinkItem>
+                  <a href="#privacy">Privacy</a>
+                </LinkItem>
+              </LinkList>
             </Typography>
           </Grid>
           <Grid item md={3} sm={12}>
@@ -45,7 +96,17 @@ const Footer = () => {
               Follow Us
             </Typography>
             <Typography variant="body2">
-              Facebook <br /> Twitter <br /> Instagram
+              <SocialIcons>
+                <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
+                  <Facebook />
+                </a>
+                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
+                  <LinkedIn />
+                </a>
+                <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
+                  <Twitter />
+                </a>
+              </SocialIcons>
             </Typography>
           </Grid>
         </Grid>

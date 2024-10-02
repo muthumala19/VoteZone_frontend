@@ -18,8 +18,8 @@ const StatsContainer = styled.div`
   color: #fff;
   width: 100%;
 
-  @media (max-width: 768px) {
-    transform: scale(0.8);
+  @media (max-width: 500px) {
+    display: none;
   }
 `;
 
