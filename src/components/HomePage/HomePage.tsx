@@ -55,19 +55,21 @@ const HomePage = () => {
         VoteZone is a web-based online voting system that helps you manage your elections easily and
         securely.
       </HomeSubtitle>
-      <HomeButton>
-        Try Now
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-          width="20px"
-          height="20px"
-        >
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-        </svg>
-      </HomeButton>
+      <a href="/register">
+        <HomeButton>
+          Try Now
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            width="20px"
+            height="20px"
+          >
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+          </svg>
+        </HomeButton>
+      </a>
     </HomeContainer>
   );
 };
