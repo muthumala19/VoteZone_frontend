@@ -58,7 +58,7 @@ const Reports = () => {
     <DashboardLayout>
       <Grid display={'flex'} flexDirection={'column'}>
         <TitleWrapper
-          id="1"
+          id={1}
           name="Election Name"
           status="Draft"
           startTime="2023-09-29 23:59:00"

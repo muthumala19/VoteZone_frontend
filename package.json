@@ -1,8 +1,10 @@
 {
   "name": "ramp-up",
   "version": "0.1.0",
+  "proxy": "http://10.10.61.170:8080",
   "private": true,
   "dependencies": {
+    "@apollo/client": "^3.11.8",
     "@emotion/react": "^11.11.3",
     "@emotion/styled": "^11.11.0",
     "@mui/icons-material": "^6.1.1",
@@ -17,6 +19,7 @@
     "@types/react-input-mask": "^2.0.5",
     "axios": "^1.6.5",
     "chart.js": "^4.4.4",
+    "graphql": "^16.9.0",
     "react": "^18.2.0",
     "react-chartjs-2": "^5.2.0",
     "react-dom": "^18.2.0",

@@ -34,8 +34,8 @@ const StyledTypography = styled(Typography)({
 interface ElectionOverviewProps {
   electionId: number;
   electionName: string;
-  startDate: string;
-  endDate: string;
+  startDate?: string;
+  endDate?: string;
   badEmails: number;
   questions: number;
   electors: number;

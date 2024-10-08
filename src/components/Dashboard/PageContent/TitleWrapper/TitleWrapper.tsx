@@ -1,10 +1,10 @@
 import { Box, Chip, Grid2, Typography } from '@mui/material';
 
 interface ITitleWrapperProps {
-  id: string;
+  id: number;
   name?: string;
   status: string;
-  startTime: string;
+  startTime?: string;
   isDraft: boolean;
 }
 
