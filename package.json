@@ -1,7 +1,6 @@
 {
   "name": "ramp-up",
   "version": "0.1.0",
-  "proxy": "http://10.10.61.170:8080",
   "private": true,
   "dependencies": {
     "@apollo/client": "^3.11.8",
