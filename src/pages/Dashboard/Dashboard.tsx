@@ -1,8 +1,14 @@
 import React from 'react';
-import Button from '@mui/material/Button';
+import Dashboard from '../../components/Dashboard/DashboardLayout';
+import DashboardLayout from '../../components/Dashboard/DashboardLayout';
+import { Box } from '@mui/material';
 
-function Dashboard() {
-  return <div></div>;
+function DashboardWrapper() {
+  return (
+    <DashboardLayout>
+      <Box></Box>
+    </DashboardLayout>
+  );
 }
 
-export default Dashboard;
+export default DashboardWrapper;
