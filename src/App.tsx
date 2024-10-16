@@ -7,6 +7,7 @@ import Register from './pages/Register/Register';
 import ThemeWrapper from './components/ThemeWrapper/ThemeWrapper';
 import ElectionDetails from './pages/EventDetails/EventDetails';
 import Reports from './pages/Reports/Reports';
+import Elections from './pages/Elections/Elections';
 
 export enum Paths {
   LOGIN = '/login',
@@ -14,6 +15,7 @@ export enum Paths {
   SIGNUP = '/signup',
   REGISTER = '/register',
   DASHBOARD = '/dashboard',
+  ELECTIONS = '/elections',
   REPORTS = '/dashboard/reports',
   NOTFOUND = '/404',
 }
@@ -27,6 +29,7 @@ function App() {
         <Route path={Paths.SIGNUP} element={<PasswordCreate />} />
         <Route path={Paths.DASHBOARD} element={<ElectionDetails />} />
         <Route path={Paths.REPORTS} element={<Reports />} />
+        <Route path={Paths.ELECTIONS} element={<Elections />} />
         <Route element={<ProtectedRoute />}>
           <Route path={Paths.HOME} element={<Home />} />
         </Route>
