@@ -1,8 +1,7 @@
 import styled from 'styled-components';
 import { Button } from '@mui/material';
 import { useState } from 'react';
-import CreateElectionModal from '../CreateElectionModal/NameAndDescriptionStep';
-import DateStep from '../CreateElectionModal/DateStep';
+import CreateElectionModal from '../CreateElectionModal/CreateElection';
 
 // Styles
 const HomeContainer = styled.div`
@@ -73,7 +72,7 @@ const HomePage = () => {
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
         </svg>
       </Button>
-      <CreateElectionModal open={createElection} onClose={() => setCreateElection(false)} />
+      {createElection && <CreateElectionModal />}
     </HomeContainer>
   );
 };

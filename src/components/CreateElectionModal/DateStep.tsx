@@ -29,17 +29,7 @@ const StyledDialogContent = styled(Dialog)`
       }}
 `;
 
-const goBack = () => {
-  console.log('go back');
-  alert('go back');
-};
-
-const goNext = () => {
-  console.log('go next');
-  alert('go next');
-};
-
-const DateStep: React.FC<Props> = ({ open, onClose }) => {
+const DateStep: React.FC<Props & { onBack: () => void }> = ({ open, onClose, onBack }) => {
   return (
     <Backdrop open={open}>
       <StyledDialogContent open={open} onClose={onClose}>
@@ -68,10 +58,10 @@ const DateStep: React.FC<Props> = ({ open, onClose }) => {
           />
         </DialogContent>
         <DialogActions>
-          <Button variant="outlined" onClick={goBack}>
+          <Button variant="outlined" onClick={onBack}>
             Back
           </Button>
-          <Button variant="outlined" onClick={goNext}>
+          <Button variant="outlined" onClick={() => alert('Final Step')}>
             Next
           </Button>
         </DialogActions>
