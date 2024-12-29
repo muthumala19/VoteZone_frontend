@@ -1,45 +1,86 @@
 import React from 'react';
-import Button from '@mui/material/Button';
-import Dialog from '@mui/material/Dialog';
-import DialogActions from '@mui/material/DialogActions';
-import DialogContent from '@mui/material/DialogContent';
-import DialogTitle from '@mui/material/DialogTitle';
-import TextField from '@mui/material/TextField';
-import DialogContentText from '@mui/material/DialogContentText';
-import Box from '@mui/material/Box';
+import {
+  Button,
+  DialogActions,
+  DialogContent,
+  DialogContentText,
+  DialogTitle,
+  TextField,
+  Backdrop,
+  Dialog,
+} from '@mui/material';
+import styled from 'styled-components';
+import CloseIcon from '@mui/icons-material/Close';
 
-interface Props {
-  goBack: () => void;
-  goNext: () => void;
-}
+type Props = {
+  open: boolean;
+  onClose: () => void;
+};
 
-const NameAndDescriptionStep: React.FC<Props> = ({ goBack, goNext }) => {
+const StyledDialogContent = styled(Dialog)`
+  && {
+    .MuiPaper-root.MuiDialog-paper {
+      border-radius: 10px;
+    }
+
+  && {
+    .MuiDialogContent-root {
+        max-width: 500px;
+      }}
+`;
+
+const goBack = () => {
+  console.log('go back');
+  alert('go back');
+};
+
+const goNext = () => {
+  console.log('go next');
+  alert('go next');
+};
+
+const NameAndDescriptionStep: React.FC<Props> = ({ open, onClose }) => {
   return (
-    <Box>
-      <DialogTitle>Create Election</DialogTitle>
-      <DialogContent>
-        <DialogContentText>Enter the name and description of the election.</DialogContentText>
-        <TextField
-          autoFocus
-          margin="dense"
-          id="name"
-          label="Election Name"
-          type="text"
-          fullWidth
-        ></TextField>
-        <TextField
-          margin="dense"
-          id="description"
-          label="Description"
-          type="text"
-          fullWidth
-        ></TextField>
-      </DialogContent>
-      <DialogActions>
-        <Button onClick={goBack}>Back</Button>
-        <Button onClick={goNext}>Next</Button>
-      </DialogActions>
-    </Box>
+    <Backdrop open={open}>
+      <StyledDialogContent open={open} onClose={onClose}>
+        <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+          <DialogTitle>Create Election</DialogTitle>
+          <DialogActions>
+            <CloseIcon
+              style={{ marginRight: '10px', cursor: 'pointer' }}
+              onClick={onClose}
+              color="primary"
+            />
+          </DialogActions>
+        </div>
+        <DialogContent>
+          <DialogContentText>Enter the name and description of the election.</DialogContentText>
+          <TextField
+            autoFocus
+            margin="dense"
+            id="name"
+            label="Election Name"
+            type="text"
+            fullWidth
+          ></TextField>
+          <TextField
+            margin="dense"
+            id="description"
+            label="Description"
+            type="text"
+            fullWidth
+          ></TextField>
+        </DialogContent>
+        <DialogActions>
+          <Button variant="outlined" onClick={goBack}>
+            Back
+          </Button>
+          <Button variant="outlined" onClick={goNext}>
+            Next
+          </Button>
+        </DialogActions>
+      </StyledDialogContent>
+    </Backdrop>
   );
 };
 

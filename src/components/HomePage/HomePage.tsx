@@ -1,4 +1,7 @@
 import styled from 'styled-components';
+import { Button } from '@mui/material';
+import { useState } from 'react';
+import CreateElectionModal from '../CreateElectionModal/NameAndDescriptionStep';
 
 // Styles
 const HomeContainer = styled.div`
@@ -48,6 +51,7 @@ const HomeButton = styled.button`
 `;
 
 const HomePage = () => {
+  const [createElection, setCreateElection] = useState(false);
   return (
     <HomeContainer>
       <HomeTitle>Online Election Perfection</HomeTitle>
@@ -55,21 +59,20 @@ const HomePage = () => {
         VoteZone is a web-based online voting system that helps you manage your elections easily and
         securely.
       </HomeSubtitle>
-      <a href="/register">
-        <HomeButton>
-          Try Now
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            width="20px"
-            height="20px"
-          >
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-          </svg>
-        </HomeButton>
-      </a>
+      <Button variant="contained" color="primary" onClick={() => setCreateElection(true)}>
+        Try Now
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          width="20px"
+          height="20px"
+        >
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+        </svg>
+      </Button>
+      <CreateElectionModal open={createElection} onClose={() => setCreateElection(false)} />
     </HomeContainer>
   );
 };
