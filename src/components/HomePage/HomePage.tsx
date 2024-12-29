@@ -72,7 +72,7 @@ const HomePage = () => {
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
         </svg>
       </Button>
-      {createElection && <CreateElectionModal />}
+      <CreateElectionModal open={createElection} onClose={() => setCreateElection(false)} />
     </HomeContainer>
   );
 };
