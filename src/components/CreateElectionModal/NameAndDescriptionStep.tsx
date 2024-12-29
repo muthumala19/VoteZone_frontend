@@ -11,6 +11,7 @@ import {
 } from '@mui/material';
 import styled from 'styled-components';
 import CloseIcon from '@mui/icons-material/Close';
+import DateStep from './DateStep';
 
 type Props = {
   open: boolean;
@@ -34,9 +35,8 @@ const goBack = () => {
   alert('go back');
 };
 
-const goNext = () => {
-  console.log('go next');
-  alert('go next');
+const goNext = (onClose: () => void) => {
+  <DateStep open={true} onClose={onClose} />;
 };
 
 const NameAndDescriptionStep: React.FC<Props> = ({ open, onClose }) => {
@@ -75,7 +75,7 @@ const NameAndDescriptionStep: React.FC<Props> = ({ open, onClose }) => {
           <Button variant="outlined" onClick={goBack}>
             Back
           </Button>
-          <Button variant="outlined" onClick={goNext}>
+          <Button variant="outlined" onClick={() => goNext(onClose)}>
             Next
           </Button>
         </DialogActions>

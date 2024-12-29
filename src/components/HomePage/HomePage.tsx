@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { Button } from '@mui/material';
 import { useState } from 'react';
 import CreateElectionModal from '../CreateElectionModal/NameAndDescriptionStep';
+import DateStep from '../CreateElectionModal/DateStep';
 
 // Styles
 const HomeContainer = styled.div`
