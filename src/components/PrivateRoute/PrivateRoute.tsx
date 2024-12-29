@@ -1,12 +1,10 @@
-import { Navigate, Outlet, useNavigate } from "react-router-dom";
-import { useAppSelector, useAppDispatch } from "../../redux/hooks";
-import { Role, authenticate } from "../../redux/user/slice";
+import { Navigate, Outlet } from 'react-router-dom';
+import { useAppSelector } from '../../redux/hooks';
 
-import { useEffect } from "react";
-import { Paths } from "../../App";
-import LoadingComponent from "../Loading/Loading";
+import { Paths } from '../../App';
+import LoadingComponent from '../Loading/Loading';
 
-export default function ProtectedRoute(children: any) {
+export default function ProtectedRoute(_children) {
   const user = useAppSelector((state) => state.user);
 
   if (user.role) {
