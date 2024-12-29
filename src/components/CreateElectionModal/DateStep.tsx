@@ -5,7 +5,7 @@ const DateStep: React.FC<{ onBack: () => void }> = ({ onBack }) => {
   return (
     <>
       <DialogContent>
-        <DialogContentText>Select the Date You want to hold the Election.</DialogContentText>
+        <DialogContentText>Select the Date and Time for the Election.</DialogContentText>
         <TextField
           autoFocus
           margin="dense"
@@ -17,6 +17,32 @@ const DateStep: React.FC<{ onBack: () => void }> = ({ onBack }) => {
             shrink: true,
           }}
         />
+        <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+          <TextField
+            margin="dense"
+            id="start-time"
+            label="Start Time"
+            type="time"
+            InputLabelProps={{
+              shrink: true,
+            }}
+            inputProps={{
+              step: 300, // 5 min
+            }}
+          />
+          <TextField
+            margin="dense"
+            id="end-time"
+            label="End Time"
+            type="time"
+            InputLabelProps={{
+              shrink: true,
+            }}
+            inputProps={{
+              step: 300, // 5 min
+            }}
+          />
+        </div>
       </DialogContent>
       <DialogActions>
         <Button variant="outlined" onClick={onBack}>
